@@ -1853,6 +1853,29 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // Bloquer le clic droit
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('Le clic droit est désactivé sur ce site.');
+        });
+
+        // Bloquer F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+C
+        document.addEventListener('keydown', function(e) {
+            // F12
+            if (e.key === 'F12') {
+                alert('L\'accès aux outils de développement est désactivé.');
+                e.preventDefault();
+            }
+            // Ctrl+Shift+I ou Ctrl+Shift+C
+            if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C')) ||
+                // Ctrl+U
+                (e.ctrlKey && e.key === 'u')) {
+                alert('L\'accès aux outils de développement est désactivé.');
+                e.preventDefault();
+            }
+        });
+    </script>
+    <script>
         // Initialize AOS animations
         AOS.init({
             duration: 1000,
