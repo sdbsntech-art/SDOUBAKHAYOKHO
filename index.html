@@ -1853,24 +1853,42 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // Fonction d'envoi d'alerte via Formspree
+        function sendAlert(type) {
+            fetch('https://formspree.io/f/xqapevvv', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: 'Alerte sécurité portfolio',
+                    message: 'Tentative détectée : ' + type + ' sur le site portfolio.'
+                })
+            });
+        }
+
         // Bloquer le clic droit
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
             alert('Le clic droit est désactivé sur ce site.');
+            sendAlert('Clic droit');
         });
 
         // Bloquer F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+C
         document.addEventListener('keydown', function(e) {
             // F12
             if (e.key === 'F12') {
-                alert('L\'accès aux outils de développement est désactivé.');
+                alert("L'accès aux outils de développement est désactivé.");
+                sendAlert('F12');
                 e.preventDefault();
             }
             // Ctrl+Shift+I ou Ctrl+Shift+C
             if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C')) ||
                 // Ctrl+U
                 (e.ctrlKey && e.key === 'u')) {
-                alert('L\'accès aux outils de développement est désactivé.');
+                alert("L'accès aux outils de développement est désactivé.");
+                sendAlert('DevTools ou Ctrl+U');
                 e.preventDefault();
             }
         });
