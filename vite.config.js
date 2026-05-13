@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const docRoot = path.join(__dirname, 'document');
+const docRoot = path.resolve(__dirname, 'document');
 
 function documentsPlugin() {
   return {
