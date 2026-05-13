@@ -21,7 +21,7 @@ const About = () => {
           </div>
 
           <div className="space-y-6 md:col-span-8">
-            <p className="text-xl leading-relaxed text-text-main">
+            <p className="text-2xl leading-relaxed text-white">
               Mon parcours s&apos;est d&apos;abord construit autour de la{' '}
               <strong className="text-white">biologie médicale</strong> : deux
               années d&apos;études à l&apos;
@@ -34,7 +34,7 @@ const About = () => {
               le goût de la précision — des qualités que je transpose aujourd&apos;hui
               dans le développement web.
             </p>
-            <p className="leading-relaxed text-text-dim">
+            <p className="text-lg leading-relaxed text-text-dim">
               Je suis convaincu qu&apos;observer le vivant avec sérieux aide à mieux
               comprendre le monde. C&apos;est pourquoi je me tourne vers la{' '}
               <strong className="text-white">recherche médicale et biologique</strong>
@@ -43,7 +43,7 @@ const About = () => {
               pour croiser les données, poser de meilleures questions et rendre
               certaines réponses plus lisibles — toujours avec humilité et éthique.
             </p>
-            <p className="leading-relaxed text-text-dim">
+            <p className="text-lg leading-relaxed text-text-dim">
               En parallèle, je construis des produits numériques utiles : interfaces
               soignées, logique métier solide, et une approche calme face aux défis
               techniques. Chaque projet est une occasion d&apos;apprendre, de

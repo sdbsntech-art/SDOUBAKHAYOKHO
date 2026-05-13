@@ -40,7 +40,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-heading mb-6 max-w-2xl text-3xl font-extrabold leading-[1.08] tracking-tighter text-white sm:text-4xl md:text-5xl"
+          className="font-heading mb-8 max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tighter text-white sm:text-5xl md:text-6xl"
         >
           Construire le <span className="text-text-dim">futur</span> avec le code.
         </motion.h1>
@@ -49,7 +49,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-8 max-w-lg text-base leading-relaxed text-text-dim md:text-lg"
+          className="mb-12 max-w-lg text-lg leading-relaxed text-text-dim md:text-xl"
         >
           Seydou Bakhayokho — développeur web et entrepreneur. J’aime transformer
           des idées utiles en interfaces claires, sobres et efficaces, au service
