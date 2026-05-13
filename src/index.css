@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  /* Modern Minimalist Palette */
+  --color-bg-base: #0a0a0a;
+  --color-bg-subtle: #141414;
+  --color-border-subtle: #262626;
+  
+  --color-accent-primary: #ffffff;
+  --color-accent-secondary: #a3a3a3;
+  
+  --color-text-main: #e5e5e5;
+  --color-text-dim: #737373;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg-base);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(100% - 1.5rem, 1000px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: max(0.75rem, env(safe-area-inset-left));
+  padding-right: max(0.75rem, env(safe-area-inset-right));
+}
+
+@media (min-width: 640px) {
+  .container {
+    width: min(100% - 2.5rem, 1000px);
+  }
+}
+
+.section {
+  padding: clamp(3.5rem, 9vw, 6rem) 0;
+}
+
+/* Minimalist Utilities */
+.btn-minimal {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  background: transparent;
+  color: var(--color-accent-primary);
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-minimal:hover {
+  background: var(--color-accent-primary);
+  color: var(--color-bg-base);
+  border-color: var(--color-accent-primary);
+}
+
+.card-minimal {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: border-color 0.3s ease;
+}
+
+.card-minimal:hover {
+  border-color: var(--color-accent-secondary);
+}
+
+.badge-minimal {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 2rem;
+  color: var(--color-text-dim);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-subtle);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-dim);
+}

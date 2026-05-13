@@ -1,0 +1,53 @@
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import BootcampGallery from './components/BootcampGallery';
+import LeadersGallery from './components/LeadersGallery';
+import Projects from './components/Projects';
+import Business from './components/Business';
+import Certifications from './components/Certifications';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { usePrefersReducedMotion } from './hooks/usePrefersReducedMotion';
+
+function App() {
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: prefersReducedMotion ? 200 : 100,
+    damping: prefersReducedMotion ? 40 : 30,
+    restDelta: 0.001,
+  });
+
+  return (
+    <div className="relative min-h-screen">
+      <motion.div
+        className="fixed top-0 left-0 right-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-accent-champagne via-accent-indigo to-accent-cyan"
+        style={{ scaleX }}
+        aria-hidden
+      />
+
+      <div className="bg-grid" />
+      <div className="bg-glow glow-indigo" />
+      <div className="bg-glow glow-gold" />
+
+      <Navbar />
+
+      <main>
+        <Hero />
+        <About />
+        <BootcampGallery />
+        <LeadersGallery />
+        <Projects />
+        <Business />
+        <Certifications />
+        <Contact />
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
+export default App;

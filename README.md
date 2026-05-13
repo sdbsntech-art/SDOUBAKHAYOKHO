@@ -1,34 +1,16 @@
-# Portfolio SDBSNDEV
+# React + Vite
 
-Ce dépôt contient le code source de mon portfolio personnel :
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-- Présentation
-- Parcours académique
-- Diplômes et certifications
-- Projets
-- Compétences
-- Contact
+Currently, two official plugins are available:
 
-## Aperçu
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-Ce portfolio met en avant mon parcours, mes compétences en développement web, mes projets et mes certifications. Il est construit en HTML5, CSS3 et utilise quelques librairies externes pour l'animation et les icônes.
+## React Compiler
 
-## Déploiement
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Vous pouvez visualiser ce portfolio en ouvrant le fichier `index.html` dans votre navigateur ou en l'hébergeant sur GitHub Pages.
+## Expanding the ESLint configuration
 
-## Auteur
-
-Seydou Bakhayokho  
-[GitHub](https://github.com/sdbsntech-art)  
-[Email](mailto:sdbsntech@gmail.com)
-
----
-
-> "Le succès n'est pas la clé du bonheur. Le bonheur est la clé du succès. Si vous aimez ce que vous faites, vous réussirez." – Albert Schweitzer
-
----
-
-## Licence
-
-Ce projet est sous licence MIT.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
