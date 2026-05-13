@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { socialLinks } from '../data/socialLinks';
+import { assetUrl } from '../lib/assetUrl';
 
 const Hero = () => {
   const startYear = 2023;
@@ -100,7 +101,7 @@ const Hero = () => {
         >
           <div className="aspect-[4/5] max-h-[min(52vh,440px)] w-full sm:aspect-[3/4] sm:max-h-[min(48vh,400px)]">
             <img
-              src="/asset/IMG-20250518-WA0013.jpg"
+              src={assetUrl('IMG-20250518-WA0013.jpg')}
               alt="Seydou Bakhayokho"
               className="h-full w-full object-cover object-top grayscale opacity-60 transition-all duration-700 hover:opacity-100 hover:grayscale-0"
             />
