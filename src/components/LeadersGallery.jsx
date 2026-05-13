@@ -5,7 +5,7 @@ import { assetUrl } from '../lib/assetUrl';
 const leaders = [
   {
     name: 'Serigne Cheikh Ahmed Tidiane Sy',
-    role: 'Khalife général des tidjanes — connu comme « le Capitaine »',
+    role: 'Homme multidimensionnel aux expertises multiples — connu comme « le Capitaine »',
     src: assetUrl('serigne cheikh ahmed tidiane sy capitaine.jpeg'),
     quote:
       'Une présence qui rappelle que le service et la retenue peuvent porter très loin.',
@@ -30,7 +30,7 @@ function LeaderPortrait({ name, role, src, quote }) {
       transition={{ duration: 0.5 }}
       className="group relative flex min-h-0 flex-col overflow-hidden rounded-2xl border border-border-subtle bg-bg-subtle shadow-[0_20px_60px_-24px_rgba(0,0,0,0.75)]"
     >
-      <div className="relative aspect-[3/4] w-full min-h-[280px] flex-1 sm:min-h-[320px] md:aspect-[4/5] md:min-h-[360px] lg:min-h-[420px]">
+      <div className="relative aspect-[4/5] w-full min-h-[200px] flex-1 sm:min-h-[240px] md:min-h-[280px] lg:min-h-[320px]">
         {!failed ? (
           <img
             src={src}
@@ -94,7 +94,7 @@ const LeadersGallery = () => {
           </p>
         </motion.header>
 
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
+        <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
           {leaders.map((leader) => (
             <LeaderPortrait key={leader.name} {...leader} />
           ))}
