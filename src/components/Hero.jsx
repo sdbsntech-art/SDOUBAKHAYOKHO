@@ -97,7 +97,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.45 }}
-          className="w-full max-w-xs overflow-hidden rounded-2xl border border-border-subtle sm:max-w-sm md:max-w-md"
+          className="mt-20 w-full max-w-xs overflow-hidden rounded-2xl border border-border-subtle sm:max-w-sm md:max-w-md"
         >
           <div className="aspect-[4/5] max-h-[min(52vh,440px)] w-full sm:aspect-[3/4] sm:max-h-[min(48vh,400px)]">
             <img

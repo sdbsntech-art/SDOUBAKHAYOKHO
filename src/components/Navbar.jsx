@@ -48,12 +48,12 @@ const Navbar = () => {
           SEYDOU.
         </a>
 
-        <div className="hidden items-center gap-6 md:flex lg:gap-8">
+        <div className="hidden items-center gap-8 md:flex lg:gap-10">
           {links.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-xs font-medium uppercase tracking-widest text-text-dim transition-colors hover:text-white"
+              className="text-sm font-semibold uppercase tracking-[0.15em] text-text-dim transition-colors hover:text-white"
             >
               {link.name}
             </a>
