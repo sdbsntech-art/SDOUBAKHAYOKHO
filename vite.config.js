@@ -52,5 +52,6 @@ function documentsPlugin() {
 }
 
 export default defineConfig({
+  base: '/SDOUBAKHAYOKHO/',
   plugins: [react(), tailwindcss(), documentsPlugin()],
 });
