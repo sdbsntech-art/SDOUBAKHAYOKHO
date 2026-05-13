@@ -52,6 +52,6 @@ function documentsPlugin() {
 }
 
 export default defineConfig({
-  base: '/SDOUBAKHAYOKHO/',
+  base: process.env.GITHUB_ACTIONS ? '/SDOUBAKHAYOKHO/' : '/',
   plugins: [react(), tailwindcss(), documentsPlugin()],
 });
