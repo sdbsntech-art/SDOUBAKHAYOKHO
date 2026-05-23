@@ -10,7 +10,6 @@ const Hero = () => {
   const currentMonth = new Date().getMonth();
   const academicYear = currentMonth < 8 ? currentYear - 1 : currentYear;
   const yearsOfStudy = academicYear - startYear + 1;
-
   let niveau = 'Licence 3';
   if (yearsOfStudy === 1) niveau = 'Licence 1';
   else if (yearsOfStudy === 2) niveau = 'Licence 2';
@@ -23,76 +22,85 @@ const Hero = () => {
   );
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center pt-28 pb-16 px-6 md:px-12 lg:px-16"
-    >
-      <div className="max-w-screen-xl mx-auto w-full">
+    <section id="home" className="section" style={{ paddingTop: '120px', paddingBottom: '80px' }}>
+      <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-          <div className="lg:col-span-8 z-10">
+          <div className="lg:col-span-8">
+            {/* Terminal prompt */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-8"
+              transition={{ duration: 0.5 }}
+              className="flex items-center gap-2 mb-8"
+              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#8b949e' }}
             >
-              <span
-                className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500 border border-neutral-800 px-3 py-1.5"
-              >
-                Sénégal · {niveau}
-              </span>
+              <span style={{ color: '#3fb950' }}>$</span>
+              <span>whoami</span>
+              <span style={{ width: '8px', height: '16px', background: '#3fb950', display: 'inline-block', marginLeft: '2px', animation: 'blink 1.2s step-end infinite' }} />
+              <style>{`@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }`}</style>
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="leading-[0.85] uppercase m-0 p-0"
-              style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: 'clamp(4rem, 12vw, 11rem)',
-                letterSpacing: '0.02em',
-              }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.025em', color: '#e6edf3', marginBottom: '12px' }}
             >
-              Construire<br />
-              <span className="text-blue-600">le futur</span><br />
-              avec le code.
+              Seydou<br />
+              <span style={{ color: '#3fb950' }}>Bakhayokho.</span>
             </motion.h1>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#8b949e', lineHeight: 2, marginBottom: '28px', background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', padding: '16px 20px' }}
+            >
+              <span style={{ color: '#58a6ff' }}>const</span>{' '}
+              <span style={{ color: '#e6edf3' }}>dev</span>{' = {'}<br />
+              &nbsp;&nbsp;<span style={{ color: '#79c0ff' }}>role</span>:{' '}
+              <span style={{ color: '#a5d6ff' }}>"Développeur Web & Entrepreneur"</span>,<br />
+              &nbsp;&nbsp;<span style={{ color: '#79c0ff' }}>location</span>:{' '}
+              <span style={{ color: '#a5d6ff' }}>"Dakar, Sénégal"</span>,<br />
+              &nbsp;&nbsp;<span style={{ color: '#79c0ff' }}>niveau</span>:{' '}
+              <span style={{ color: '#a5d6ff' }}>"{niveau}"</span>,<br />
+              &nbsp;&nbsp;<span style={{ color: '#79c0ff' }}>stack</span>:{' '}
+              [<span style={{ color: '#a5d6ff' }}>"React"</span>, <span style={{ color: '#a5d6ff' }}>"Vite"</span>, <span style={{ color: '#a5d6ff' }}>"Node"</span>],<br />
+              &nbsp;&nbsp;<span style={{ color: '#79c0ff' }}>open</span>:{' '}
+              <span style={{ color: '#79c0ff' }}>true</span><br />
+              {'}'}
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.25 }}
-              className="mt-8 max-w-lg text-lg font-light leading-relaxed text-neutral-400"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.8, color: '#8b949e', maxWidth: '480px', marginBottom: '32px' }}
             >
-              Seydou Bakhayokho — développeur web et entrepreneur. Je transforme
-              des idées utiles en interfaces claires et efficaces, au service de
-              projets qui avancent.
+              Je construis des interfaces web efficaces et des produits numériques utiles,
+              avec une approche calme face aux défis techniques.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-              className="mt-10 flex flex-wrap items-center gap-4"
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="flex flex-wrap items-center gap-3"
             >
               <a href="#projects" className="btn-minimal">
-                Voir les travaux <ArrowRight size={18} />
+                Voir les projets <ArrowRight size={15} />
               </a>
-              <a
-                href="#contact"
-                className="btn-outline"
-              >
-                Prendre contact
+              <a href="#contact" className="btn-outline">
+                Me contacter
               </a>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.45 }}
-              className="mt-10 flex items-center gap-4"
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="flex items-center gap-3 mt-8"
             >
               {primarySocial.map(({ href, label, iconClass }) => (
                 <a
@@ -101,48 +109,47 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center border border-neutral-800 text-neutral-500 transition-colors hover:border-neutral-500 hover:text-white"
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '34px', height: '34px', background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', color: '#8b949e', transition: 'all 0.2s' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#3fb950'; e.currentTarget.style.color = '#3fb950'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = '#21262d'; e.currentTarget.style.color = '#8b949e'; }}
                 >
-                  <i className={iconClass} aria-hidden />
+                  <i className={iconClass} style={{ fontSize: '14px' }} aria-hidden />
                 </a>
               ))}
             </motion.div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
             className="lg:col-span-4"
           >
-            <div className="relative w-full max-w-xs mx-auto lg:max-w-none">
-              <div className="aspect-[3/4] w-full overflow-hidden border border-neutral-800 group">
-                <img
-                  src={assetUrl('IMG-20250518-WA0013.jpg')}
-                  alt="Seydou Bakhayokho"
-                  className="h-full w-full object-cover object-top grayscale opacity-70 transition-all duration-700 group-hover:opacity-100 group-hover:grayscale-0"
-                />
+            <div style={{ position: 'relative', width: '100%', maxWidth: '320px', margin: '0 auto' }}>
+              <div style={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', overflow: 'hidden' }}>
+                {/* Fake browser bar */}
+                <div style={{ padding: '10px 14px', borderBottom: '1px solid #21262d', display: 'flex', alignItems: 'center', gap: '6px', background: '#161b22' }}>
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ff5f57', display: 'inline-block' }} />
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#febc2e', display: 'inline-block' }} />
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#28c840', display: 'inline-block' }} />
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#484f57', marginLeft: '8px' }}>profile.jpg</span>
+                </div>
+                <div style={{ aspectRatio: '4/5', overflow: 'hidden' }}>
+                  <img
+                    src={assetUrl('IMG-20250518-WA0013.jpg')}
+                    alt="Seydou Bakhayokho"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', filter: 'grayscale(30%)', opacity: 0.85, transition: 'all 0.4s ease' }}
+                    onMouseEnter={e => { e.currentTarget.style.filter = 'grayscale(0%)'; e.currentTarget.style.opacity = '1'; }}
+                    onMouseLeave={e => { e.currentTarget.style.filter = 'grayscale(30%)'; e.currentTarget.style.opacity = '0.85'; }}
+                  />
+                </div>
               </div>
-              <div
-                className="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500"
-              >
-                Dakar, SN
+              <div style={{ marginTop: '12px', fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#484f57', textAlign: 'center' }}>
+                // Dakar, SN · {new Date().getFullYear()}
               </div>
             </div>
           </motion.div>
         </div>
-      </div>
-
-      <div
-        className="pointer-events-none absolute bottom-0 left-6 md:left-12 lg:left-16 select-none leading-none text-neutral-950"
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: 'clamp(8rem, 22vw, 22rem)',
-          letterSpacing: '0.01em',
-        }}
-        aria-hidden
-      >
-        PORTFOLIO
       </div>
     </section>
   );

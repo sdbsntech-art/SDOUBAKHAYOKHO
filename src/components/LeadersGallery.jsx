@@ -5,56 +5,64 @@ import { assetUrl } from '../lib/assetUrl';
 const leaders = [
   {
     name: 'Serigne Cheikh Ahmed Tidiane Sy',
-    role: 'Homme multidimensionnel — «&nbsp;le Capitaine&nbsp;»',
+    handle: 'le-capitaine',
+    role: 'Homme multidimensionnel aux expertises multiples',
     src: assetUrl('serigne cheikh ahmed tidiane sy capitaine.jpeg'),
     quote: 'Une présence qui rappelle que le service et la retenue peuvent porter très loin.',
+    color: '#f0883e',
   },
   {
     name: 'Cheikh Anta Diop',
+    handle: 'cheikh-anta-diop',
     role: 'Historien, scientifique, penseur africain',
     src: assetUrl('cheikh anta diop.jfif'),
     quote: "L'exigence des preuves et la fierté d'une histoire bien lue : un compas intellectuel.",
+    color: '#58a6ff',
   },
 ];
 
-function LeaderPortrait({ name, role, src, quote }) {
+function LeaderCard({ name, handle, role, src, quote, color }) {
   const [failed, setFailed] = useState(false);
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5 }}
-      className="group relative flex flex-col overflow-hidden border border-neutral-900 hover:border-neutral-700 transition-colors"
+      style={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', overflow: 'hidden', transition: 'border-color 0.2s' }}
+      onMouseEnter={e => e.currentTarget.style.borderColor = color + '60'}
+      onMouseLeave={e => e.currentTarget.style.borderColor = '#21262d'}
     >
-      <div className="relative aspect-[4/5] w-full overflow-hidden">
+      <div style={{ padding: '10px 16px', borderBottom: '1px solid #21262d', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: color, display: 'inline-block' }} />
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#58a6ff' }}>{handle}</span>
+        </div>
+        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#484f57' }}>figure.jpg</span>
+      </div>
+
+      <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden' }}>
         {!failed ? (
           <img
             src={src}
             alt={name}
-            className="h-full w-full object-cover object-top grayscale opacity-70 transition-all duration-700 group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:opacity-90"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', filter: 'grayscale(40%)', opacity: 0.75, transition: 'all 0.5s ease' }}
+            onMouseEnter={e => { e.currentTarget.style.filter = 'grayscale(0%)'; e.currentTarget.style.opacity = '0.95'; }}
+            onMouseLeave={e => { e.currentTarget.style.filter = 'grayscale(40%)'; e.currentTarget.style.opacity = '0.75'; }}
             loading="lazy"
             onError={() => setFailed(true)}
           />
         ) : (
-          <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-neutral-950 p-8 text-center">
-            <p className="font-heading text-lg font-bold text-white">{name}</p>
-            <p className="max-w-xs text-xs text-neutral-500">Image non trouvée</p>
+          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#161b22', color: '#484f57', fontSize: '14px', fontFamily: "'JetBrains Mono', monospace" }}>
+            Image non trouvée
           </div>
         )}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-95" aria-hidden />
-        <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-          <h3
-            className="text-white mb-2"
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.5rem', letterSpacing: '0.04em' }}
-          >
-            {name}
-          </h3>
-          <p className="text-xs uppercase tracking-[0.12em] text-neutral-400 mb-4" dangerouslySetInnerHTML={{ __html: role }} />
-          <p className="max-w-md border-l-2 border-blue-600 pl-4 text-sm font-light leading-relaxed text-neutral-300">
-            {quote}
-          </p>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,17,23,0.95) 0%, rgba(13,17,23,0.4) 50%, transparent 100%)' }} aria-hidden />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px' }}>
+          <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#e6edf3', marginBottom: '4px' }}>{name}</h3>
+          <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#8b949e', marginBottom: '10px' }}>{role}</p>
+          <p style={{ fontSize: '13px', color: '#c9d1d9', lineHeight: 1.6, borderLeft: `2px solid ${color}`, paddingLeft: '10px' }}>{quote}</p>
         </div>
       </div>
     </motion.article>
@@ -63,32 +71,43 @@ function LeaderPortrait({ name, role, src, quote }) {
 
 const LeadersGallery = () => {
   return (
-    <section id="leaders" className="section border-t border-neutral-900 px-6 md:px-12 lg:px-16">
-      <div className="max-w-screen-xl mx-auto">
+    <section id="leaders" className="section" style={{ borderTop: '1px solid #21262d' }}>
+      <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-14"
+          className="flex items-center gap-2 mb-10"
+          style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#8b949e' }}
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 mb-4">Figures emblématiques</p>
-          <h2
-            className="text-white uppercase max-w-3xl"
-            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(2rem, 5vw, 4.5rem)', letterSpacing: '0.03em', lineHeight: 0.9 }}
-          >
-            Deux repères : la science au sol, la profondeur du cœur.
-          </h2>
-          <p className="mt-6 max-w-2xl text-base font-light leading-relaxed text-neutral-500">
-            Cheikh Anta Diop nous invite à croiser les disciplines et à respecter les faits ;
-            Serigne Cheikh Ahmed Tidiane Sy rappelle la mesure, l&apos;humilité et le sens du don.
-            Ensemble, ils dessinent une boussole.
-          </p>
+          <span style={{ color: '#3fb950' }}>$</span>
+          <span>cat figures.md</span>
         </motion.div>
 
-        <div className="grid gap-px bg-neutral-900 md:grid-cols-2">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+          <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#e6edf3', letterSpacing: '-0.01em' }}>
+            Figures emblématiques
+          </h2>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#484f57' }}>
+            {leaders.length} figures
+          </span>
+        </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          style={{ fontSize: '15px', color: '#8b949e', lineHeight: 1.8, maxWidth: '640px', marginBottom: '32px' }}
+        >
+          Cheikh Anta Diop nous invite à croiser les disciplines et à respecter les faits ;
+          Serigne Cheikh Ahmed Tidiane Sy rappelle la mesure, l&apos;humilité et le sens du don.
+        </motion.p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {leaders.map((leader) => (
-            <LeaderPortrait key={leader.name} {...leader} />
+            <LeaderCard key={leader.name} {...leader} />
           ))}
         </div>
       </div>

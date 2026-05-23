@@ -3,13 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const links = [
-  { name: 'Info', href: '#about' },
-  { name: 'Bootcamp', href: '#bootcamp' },
-  { name: 'Sagesse', href: '#sagesse' },
-  { name: 'Figures', href: '#leaders' },
-  { name: 'Works', href: '#projects' },
-  { name: 'Services', href: '#business' },
-  { name: 'Contact', href: '#contact' },
+  { name: '~/info', href: '#about' },
+  { name: '~/bootcamp', href: '#bootcamp' },
+  { name: '~/figures', href: '#leaders' },
+  { name: '~/works', href: '#projects' },
+  { name: '~/services', href: '#business' },
+  { name: '~/contact', href: '#contact' },
 ];
 
 const Navbar = () => {
@@ -31,42 +30,57 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed z-50 w-full transition-all duration-300 ${
-        isScrolled || menuOpen
-          ? 'bg-black/95 py-4 border-b border-neutral-900 backdrop-blur-md'
-          : 'bg-transparent py-6 md:py-8'
-      }`}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        background: isScrolled || menuOpen ? 'rgba(13,17,23,0.97)' : 'transparent',
+        backdropFilter: isScrolled || menuOpen ? 'blur(12px)' : 'none',
+        borderBottom: isScrolled || menuOpen ? '1px solid #21262d' : '1px solid transparent',
+        transition: 'all 0.3s ease',
+        padding: '0',
+      }}
     >
-      <div className="container flex items-center justify-between gap-4">
+      <div className="container flex items-center justify-between gap-4" style={{ height: '56px' }}>
         <a
           href="#home"
           onClick={closeMenu}
-          className="shrink-0 font-heading text-xl md:text-2xl tracking-wider text-white"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.08em' }}
+          className="shrink-0 flex items-center gap-2"
+          style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 500, color: '#e6edf3', letterSpacing: '0.02em' }}
         >
-          SEYDOU<span className="text-blue-600">.</span>
+          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3fb950', boxShadow: '0 0 6px #3fb950', display: 'inline-block', flexShrink: 0 }} />
+          seydou.dev
         </a>
 
-        <div className="hidden items-center gap-8 md:flex lg:gap-10">
+        <div className="hidden items-center gap-6 md:flex lg:gap-8">
           {links.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 transition-colors hover:text-white"
+              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#8b949e', transition: 'color 0.2s', letterSpacing: '0.02em' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#e6edf3'}
+              onMouseLeave={e => e.currentTarget.style.color = '#8b949e'}
             >
               {link.name}
             </a>
           ))}
         </div>
 
+        <div className="hidden md:flex items-center gap-2" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#3fb950', border: '1px solid #238636', padding: '5px 12px', borderRadius: '6px', background: 'rgba(35,134,54,0.08)' }}>
+          available=true
+        </div>
+
         <button
           type="button"
-          className="flex h-9 w-9 items-center justify-center border border-neutral-800 text-white transition-colors hover:border-neutral-600 hover:bg-white/5 md:hidden"
+          className="flex h-8 w-8 items-center justify-center md:hidden"
+          style={{ border: '1px solid #21262d', borderRadius: '6px', background: 'transparent', color: '#8b949e' }}
           onClick={() => setMenuOpen((o) => !o)}
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
         >
-          {menuOpen ? <X size={18} strokeWidth={1.5} /> : <Menu size={18} strokeWidth={1.5} />}
+          {menuOpen ? <X size={16} /> : <Menu size={16} />}
         </button>
       </div>
 
@@ -76,20 +90,21 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-neutral-900 bg-black md:hidden"
+            transition={{ duration: 0.2 }}
+            style={{ borderTop: '1px solid #21262d', background: '#0d1117', overflow: 'hidden' }}
           >
-            <div className="container flex flex-col py-4 pb-8">
+            <div className="container flex flex-col py-4 pb-6">
               {links.map((link, i) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={closeMenu}
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.04 * i, duration: 0.2 }}
-                  className="border-b border-neutral-900 py-4 font-heading text-2xl text-white transition-colors hover:text-blue-600"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}
+                  transition={{ delay: 0.04 * i }}
+                  style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#8b949e', padding: '12px 0', borderBottom: '1px solid #161b22', transition: 'color 0.2s' }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#3fb950'}
+                  onMouseLeave={e => e.currentTarget.style.color = '#8b949e'}
                 >
                   {link.name}
                 </motion.a>

@@ -1,60 +1,41 @@
 import React from 'react';
 
+const socials = [
+  { label: 'GitHub', href: 'https://github.com/sdbsntech-art', icon: 'fa-brands fa-github' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/seydou-bakhayokho-864070343', icon: 'fa-brands fa-linkedin' },
+  { label: 'YouTube', href: 'https://www.youtube.com/channel/UCd2g3LCyGPa2lxCdAk1ZP3g', icon: 'fa-brands fa-youtube' },
+  { label: 'Instagram', href: 'https://www.instagram.com/princeseydoubhk/', icon: 'fa-brands fa-instagram' },
+];
+
 const Footer = () => {
   return (
-    <footer className="py-10 border-t border-neutral-900 bg-black px-6 md:px-12 lg:px-16">
-      <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer style={{ borderTop: '1px solid #21262d', background: '#0d1117', padding: '32px 0' }}>
+      <div className="container">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#484f57' }}>
+            <span style={{ color: '#3fb950' }}>$</span> echo "© {new Date().getFullYear()} Seydou Bakhayokho"
+          </div>
 
-        <div
-          className="text-2xl text-neutral-600 tracking-widest"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.1em' }}
-        >
-          SB <span className="text-blue-600">©{new Date().getFullYear()}</span>
-        </div>
+          <div className="flex items-center gap-4">
+            {socials.map(({ label, href, icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', color: '#8b949e', fontSize: '14px', transition: 'all 0.2s', textDecoration: 'none' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = '#3fb950'; e.currentTarget.style.color = '#3fb950'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = '#21262d'; e.currentTarget.style.color = '#8b949e'; }}
+              >
+                <i className={icon} aria-hidden />
+              </a>
+            ))}
+          </div>
 
-        <div className="flex gap-6 items-center">
-          <a
-            href="https://github.com/sdbsntech-art"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-neutral-600 hover:text-white transition-colors text-xs font-light uppercase tracking-widest"
-          >
-            <i className="fa-brands fa-github text-base" aria-hidden />
-            <span className="hidden sm:inline">GitHub</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/seydou-bakhayokho-864070343"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-neutral-600 hover:text-white transition-colors text-xs font-light uppercase tracking-widest"
-          >
-            <i className="fa-brands fa-linkedin text-base" aria-hidden />
-            <span className="hidden sm:inline">LinkedIn</span>
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UCd2g3LCyGPa2lxCdAk1ZP3g"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-neutral-600 hover:text-white transition-colors text-xs font-light uppercase tracking-widest"
-          >
-            <i className="fa-brands fa-youtube text-base" aria-hidden />
-            <span className="hidden sm:inline">YouTube</span>
-          </a>
-          <a
-            href="https://www.instagram.com/princeseydoubhk/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-neutral-600 hover:text-white transition-colors text-xs font-light uppercase tracking-widest"
-          >
-            <i className="fa-brands fa-instagram text-base" aria-hidden />
-            <span className="hidden sm:inline">Instagram</span>
-          </a>
-        </div>
-
-        <div className="flex items-center gap-3 text-xs font-light uppercase tracking-[0.18em] text-neutral-700">
-          <span>Dakar</span>
-          <span className="w-6 h-px bg-neutral-800" />
-          <span>Sénégal</span>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#484f57' }}>
+            // Dakar, Sénégal
+          </div>
         </div>
       </div>
     </footer>

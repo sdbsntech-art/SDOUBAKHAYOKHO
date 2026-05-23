@@ -7,66 +7,53 @@ const About = () => {
     ['GitHub', 'LinkedIn', 'YouTube'].includes(s.label),
   );
 
+  const skills = [
+    { label: 'Frontend', items: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'] },
+    { label: 'Backend', items: ['Node.js', 'Express', 'REST APIs'] },
+    { label: 'Outils', items: ['Git', 'GitHub', 'Figma', 'VS Code'] },
+    { label: 'Intérêts', items: ['Biologie médicale', 'IA & données', 'Recherche'] },
+  ];
+
   return (
-    <section id="about" className="section border-t border-neutral-900 px-6 md:px-12 lg:px-16">
-      <div className="max-w-screen-xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+    <section id="about" className="section" style={{ borderTop: '1px solid #21262d' }}>
+      <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-2 mb-10"
+          style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#8b949e' }}
+        >
+          <span style={{ color: '#3fb950' }}>$</span>
+          <span>cat about.md</span>
+        </motion.div>
 
-          <div className="lg:col-span-4">
-            <div className="lg:sticky lg:top-32">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <div
-                  className="text-blue-600 leading-none"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(7rem, 15vw, 13rem)', letterSpacing: '0.02em' }}
-                >01</div>
-                <h2
-                  className="text-white uppercase mt-[-0.12em]"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', letterSpacing: '0.03em', lineHeight: 0.9 }}
-                >
-                  Info
-                </h2>
-              </motion.div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-8 flex flex-col gap-12 lg:pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="lg:col-span-7 flex flex-col gap-8">
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
             >
-              <p className="text-2xl md:text-3xl font-light leading-relaxed text-white">
+              <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#e6edf3', letterSpacing: '-0.015em', marginBottom: '16px' }}>
+                À propos
+              </h2>
+              <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e', marginBottom: '16px' }}>
                 Mon parcours s&apos;est d&apos;abord construit autour de la{' '}
-                <strong className="font-semibold text-white">biologie médicale</strong>{' '}
-                : deux années à l&apos;
-                <strong className="font-semibold text-white">Institut Santé Service (ISS)</strong>,
-                à Dakar. Cette base m&apos;a appris la méthode, le respect des protocoles et
-                le goût de la précision — des qualités que je transpose dans le développement web.
+                <span style={{ color: '#e6edf3', fontWeight: 500 }}>biologie médicale</span>{' '}
+                — deux années à l&apos;Institut Santé Service (ISS) à Dakar. Cette base m&apos;a appris
+                la méthode, le respect des protocoles et le goût de la précision.
               </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-col gap-6"
-            >
-              <p className="text-lg font-light leading-relaxed text-neutral-400">
-                Je suis convaincu qu&apos;observer le vivant avec sérieux aide à mieux comprendre
-                le monde. C&apos;est pourquoi je me tourne vers la{' '}
-                <strong className="font-medium text-white">recherche médicale et biologique</strong>,
-                avec l&apos;ambition d&apos;y associer{' '}
-                <strong className="font-medium text-white">l&apos;intelligence artificielle</strong>{' '}
-                pour croiser les données et rendre certaines réponses plus lisibles.
+              <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e', marginBottom: '16px' }}>
+                Je me tourne vers la{' '}
+                <span style={{ color: '#e6edf3', fontWeight: 500 }}>recherche médicale et biologique</span>
+                , avec l&apos;ambition d&apos;y associer{' '}
+                <span style={{ color: '#3fb950', fontWeight: 500 }}>l&apos;intelligence artificielle</span>
+                {' '}pour croiser les données et rendre certaines réponses plus lisibles.
               </p>
-              <p className="text-lg font-light leading-relaxed text-neutral-400">
+              <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e' }}>
                 En parallèle, je construis des produits numériques utiles : interfaces soignées,
                 logique métier solide, et une approche calme face aux défis techniques.
               </p>
@@ -76,51 +63,60 @@ const About = () => {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-10 border-t border-neutral-900 pt-10"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              style={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', padding: '20px' }}
             >
-              <div>
-                <h4
-                  className="text-blue-600 mb-5 text-2xl"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}
-                >
-                  Orientation
-                </h4>
-                <ul className="flex flex-col gap-0">
-                  {[
-                    'Biologie médicale & culture scientifique',
-                    'Recherche, données & IA (perspectives)',
-                    'Développement web moderne (React)',
-                  ].map((item) => (
-                    <li key={item} className="border-b border-neutral-900 py-3 text-sm font-light text-neutral-400">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#8b949e', marginBottom: '12px' }}>
+                <span style={{ color: '#3fb950' }}>//</span> Liens
               </div>
-              <div>
-                <h4
-                  className="text-blue-600 mb-5 text-2xl"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}
-                >
-                  Liens utiles
-                </h4>
-                <ul className="flex flex-col gap-0">
-                  {mainSocial.map(({ href, label }) => (
-                    <li key={href} className="border-b border-neutral-900 py-3">
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-light text-neutral-400 transition-colors hover:text-white"
-                      >
-                        {label}{label === 'GitHub' ? ' (sdbsntech-art)' : ''}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex flex-col gap-0">
+                {mainSocial.map(({ href, label }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid #21262d', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#58a6ff', textDecoration: 'none', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#3fb950'}
+                    onMouseLeave={e => e.currentTarget.style.color = '#58a6ff'}
+                  >
+                    {label}
+                    <span style={{ color: '#484f57' }}>↗</span>
+                  </a>
+                ))}
               </div>
             </motion.div>
+          </div>
+
+          <div className="lg:col-span-5 flex flex-col gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#8b949e', marginBottom: '4px' }}
+            >
+              <span style={{ color: '#3fb950' }}>//</span> Stack & compétences
+            </motion.div>
+            {skills.map((group, i) => (
+              <motion.div
+                key={group.label}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
+                style={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', padding: '14px 16px' }}
+              >
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#8b949e', marginBottom: '8px', letterSpacing: '0.05em' }}>{group.label}</div>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map(item => (
+                    <span key={item} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#a5d6ff', background: 'rgba(88,166,255,0.08)', border: '1px solid rgba(88,166,255,0.15)', borderRadius: '4px', padding: '2px 8px' }}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

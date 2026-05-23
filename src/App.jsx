@@ -21,15 +21,13 @@ function App() {
   });
 
   return (
-    <div className="relative min-h-screen bg-black">
+    <div className="relative min-h-screen" style={{ background: '#0d1117' }}>
       <motion.div
-        className="fixed top-0 left-0 right-0 z-[60] h-[2px] origin-left bg-blue-600"
-        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 z-[60] h-[2px] origin-left"
+        style={{ scaleX, background: '#3fb950' }}
         aria-hidden
       />
-
       <Navbar />
-
       <main>
         <Hero />
         <About />
@@ -40,7 +38,6 @@ function App() {
         <Certifications />
         <Contact />
       </main>
-
       <Footer />
     </div>
   );
