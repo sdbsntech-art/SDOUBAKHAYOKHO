@@ -87,10 +87,7 @@ const LeadersGallery = () => {
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-text-dim sm:text-base">
             Cheikh Anta Diop nous invite à croiser les disciplines et à respecter
-            les faits ; Serigne Cheikh Ahmed Tidiane Sy nous rappelle la mesure,
-            l’humilité et le sens du don. Ensemble, ils dessinent une boussole :
-            penser juste, servir avec dignité, et ne jamais se contenter du
-            superficiel.
+            les faits ; Serigne Cheikh Ahmed Tidiane Sy, lui, est un homme, un grand homme multidisciplinaire, qui analyse les choses avec une profondeur et une clarté rares. Il ne figure pas un sens abstrait : il nous fait savoir comment sont réellement les choses et nous guide sur le droit chemin — celui de l'évolution nécessaire de l'homme à l'humain.
           </p>
         </motion.header>
 
