@@ -7,7 +7,7 @@ const links = [
   { name: '~/bootcamp', href: '#bootcamp' },
   { name: '~/figures', href: '#leaders' },
   { name: '~/works', href: '#projects' },
-  { name: '~/services', href: '#business' },
+  { name: '~/notes', href: '#notes' },
   { name: '~/contact', href: '#contact' },
 ];
 

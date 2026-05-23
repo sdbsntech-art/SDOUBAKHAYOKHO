@@ -6,6 +6,7 @@ import LeadersGallery from './components/LeadersGallery';
 import Projects from './components/Projects';
 import Business from './components/Business';
 import Certifications from './components/Certifications';
+import Notes from './components/Notes';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { motion, useScroll, useSpring } from 'framer-motion';
@@ -36,6 +37,7 @@ function App() {
         <Projects />
         <Business />
         <Certifications />
+        <Notes />
         <Contact />
       </main>
       <Footer />
