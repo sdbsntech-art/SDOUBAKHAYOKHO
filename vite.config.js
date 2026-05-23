@@ -54,4 +54,9 @@ function documentsPlugin() {
 export default defineConfig({
   base: process.env.GITHUB_ACTIONS ? '/SDOUBAKHAYOKHO/' : '/',
   plugins: [react(), tailwindcss(), documentsPlugin()],
+  server: {
+    host: '0.0.0.0',
+    port: 5000,
+    allowedHosts: true,
+  },
 });
