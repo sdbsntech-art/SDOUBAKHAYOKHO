@@ -21,16 +21,12 @@ function App() {
   });
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-black">
       <motion.div
-        className="fixed top-0 left-0 right-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-accent-champagne via-accent-indigo to-accent-cyan"
+        className="fixed top-0 left-0 right-0 z-[60] h-[2px] origin-left bg-blue-600"
         style={{ scaleX }}
         aria-hidden
       />
-
-      <div className="bg-grid" />
-      <div className="bg-glow glow-indigo" />
-      <div className="bg-glow glow-gold" />
 
       <Navbar />
 

@@ -17,16 +17,14 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
@@ -35,17 +33,18 @@ const Navbar = () => {
     <nav
       className={`fixed z-50 w-full transition-all duration-300 ${
         isScrolled || menuOpen
-          ? 'bg-bg-base/90 py-3 backdrop-blur-md md:py-4'
-          : 'bg-transparent py-5 md:py-8'
-      } ${menuOpen ? 'ring-1 ring-white/5' : ''}`}
+          ? 'bg-black/95 py-4 border-b border-neutral-900 backdrop-blur-md'
+          : 'bg-transparent py-6 md:py-8'
+      }`}
     >
-      <div className="container flex min-w-0 items-center justify-between gap-3">
+      <div className="container flex items-center justify-between gap-4">
         <a
           href="#home"
-          className="shrink-0 text-lg font-heading font-bold tracking-tight text-white sm:text-xl"
           onClick={closeMenu}
+          className="shrink-0 font-heading text-xl md:text-2xl tracking-wider text-white"
+          style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.08em' }}
         >
-          SEYDOU.
+          SEYDOU<span className="text-blue-600">.</span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex lg:gap-10">
@@ -53,7 +52,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-semibold uppercase tracking-[0.15em] text-text-dim transition-colors hover:text-white"
+              className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 transition-colors hover:text-white"
             >
               {link.name}
             </a>
@@ -62,43 +61,42 @@ const Navbar = () => {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border-subtle text-white transition-colors hover:border-white/25 hover:bg-white/5 md:hidden"
+          className="flex h-9 w-9 items-center justify-center border border-neutral-800 text-white transition-colors hover:border-neutral-600 hover:bg-white/5 md:hidden"
           onClick={() => setMenuOpen((o) => !o)}
           aria-expanded={menuOpen}
-          aria-controls="nav-mobile-panel"
           aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
         >
-          {menuOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+          {menuOpen ? <X size={18} strokeWidth={1.5} /> : <Menu size={18} strokeWidth={1.5} />}
         </button>
       </div>
 
       <AnimatePresence>
-        {menuOpen ? (
+        {menuOpen && (
           <motion.div
-            id="nav-mobile-panel"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-border-subtle bg-bg-base/95 backdrop-blur-xl md:hidden"
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-neutral-900 bg-black md:hidden"
           >
-            <div className="container flex flex-col gap-1 py-4 pb-6">
+            <div className="container flex flex-col py-4 pb-8">
               {links.map((link, i) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={closeMenu}
-                  initial={{ opacity: 0, x: -12 }}
+                  initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.04 * i, duration: 0.25 }}
-                  className="rounded-lg px-3 py-3.5 font-heading text-lg font-semibold text-white transition-colors hover:bg-white/5"
+                  transition={{ delay: 0.04 * i, duration: 0.2 }}
+                  className="border-b border-neutral-900 py-4 font-heading text-2xl text-white transition-colors hover:text-blue-600"
+                  style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}
                 >
                   {link.name}
                 </motion.a>
               ))}
             </div>
           </motion.div>
-        ) : null}
+        )}
       </AnimatePresence>
     </nav>
   );

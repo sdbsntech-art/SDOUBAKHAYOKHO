@@ -5,17 +5,15 @@ import { assetUrl } from '../lib/assetUrl';
 const leaders = [
   {
     name: 'Serigne Cheikh Ahmed Tidiane Sy',
-    role: 'Homme multidimensionnel aux expertises multiples — connu comme « le Capitaine »',
+    role: 'Homme multidimensionnel — «&nbsp;le Capitaine&nbsp;»',
     src: assetUrl('serigne cheikh ahmed tidiane sy capitaine.jpeg'),
-    quote:
-      'Une présence qui rappelle que le service et la retenue peuvent porter très loin.',
+    quote: 'Une présence qui rappelle que le service et la retenue peuvent porter très loin.',
   },
   {
     name: 'Cheikh Anta Diop',
     role: 'Historien, scientifique, penseur africain',
     src: assetUrl('cheikh anta diop.jfif'),
-    quote:
-      'L’exigence des preuves et la fierté d’une histoire bien lue : un compas intellectuel.',
+    quote: "L'exigence des preuves et la fierté d'une histoire bien lue : un compas intellectuel.",
   },
 ];
 
@@ -28,38 +26,33 @@ function LeaderPortrait({ name, role, src, quote }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5 }}
-      className="group relative flex min-h-0 flex-col overflow-hidden rounded-2xl border border-border-subtle bg-bg-subtle shadow-[0_20px_60px_-24px_rgba(0,0,0,0.75)]"
+      className="group relative flex flex-col overflow-hidden border border-neutral-900 hover:border-neutral-700 transition-colors"
     >
-      <div className="relative aspect-[4/5] w-full min-h-[200px] flex-1 sm:min-h-[240px] md:min-h-[280px] lg:min-h-[320px]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden">
         {!failed ? (
           <img
             src={src}
             alt={name}
-            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+            className="h-full w-full object-cover object-top grayscale opacity-70 transition-all duration-700 group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:opacity-90"
             loading="lazy"
             onError={() => setFailed(true)}
           />
         ) : (
-          <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-b from-bg-subtle to-bg-base p-8 text-center">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-neutral-950 p-8 text-center">
             <p className="font-heading text-lg font-bold text-white">{name}</p>
-            <p className="max-w-xs text-xs text-text-dim">
-              Image non trouvée — vérifiez le nom du fichier dans{' '}
-              <span className="text-text-main/80">public/asset/</span>
-            </p>
+            <p className="max-w-xs text-xs text-neutral-500">Image non trouvée</p>
           </div>
         )}
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"
-          aria-hidden
-        />
-        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 md:p-8">
-          <h3 className="font-heading text-xl font-bold leading-tight text-white sm:text-2xl">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-95" aria-hidden />
+        <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+          <h3
+            className="text-white mb-2"
+            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '1.5rem', letterSpacing: '0.04em' }}
+          >
             {name}
           </h3>
-          <p className="mt-2 text-xs uppercase tracking-[0.14em] text-white/75 sm:text-sm sm:normal-case sm:tracking-normal">
-            {role}
-          </p>
-          <p className="mt-4 max-w-md border-l border-white/25 pl-4 text-sm leading-relaxed text-white/85">
+          <p className="text-xs uppercase tracking-[0.12em] text-neutral-400 mb-4" dangerouslySetInnerHTML={{ __html: role }} />
+          <p className="max-w-md border-l-2 border-blue-600 pl-4 text-sm font-light leading-relaxed text-neutral-300">
             {quote}
           </p>
         </div>
@@ -70,31 +63,30 @@ function LeaderPortrait({ name, role, src, quote }) {
 
 const LeadersGallery = () => {
   return (
-    <section id="leaders" className="section border-t border-border-subtle">
-      <div className="container">
-        <motion.header
+    <section id="leaders" className="section border-t border-neutral-900 px-6 md:px-12 lg:px-16">
+      <div className="max-w-screen-xl mx-auto">
+        <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mx-auto mb-12 max-w-3xl text-center md:mb-16"
+          className="mb-14"
         >
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-text-dim">
-            Figures emblématiques
-          </p>
-          <h2 className="font-heading text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 mb-4">Figures emblématiques</p>
+          <h2
+            className="text-white uppercase max-w-3xl"
+            style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(2rem, 5vw, 4.5rem)', letterSpacing: '0.03em', lineHeight: 0.9 }}
+          >
             Deux repères : la science au sol, la profondeur du cœur.
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-text-dim sm:text-base">
-            Cheikh Anta Diop nous invite à croiser les disciplines et à respecter
-            les faits ; Serigne Cheikh Ahmed Tidiane Sy nous rappelle la mesure,
-            l’humilité et le sens du don. Ensemble, ils dessinent une boussole :
-            penser juste, servir avec dignité, et ne jamais se contenter du
-            superficiel.
+          <p className="mt-6 max-w-2xl text-base font-light leading-relaxed text-neutral-500">
+            Cheikh Anta Diop nous invite à croiser les disciplines et à respecter les faits ;
+            Serigne Cheikh Ahmed Tidiane Sy rappelle la mesure, l&apos;humilité et le sens du don.
+            Ensemble, ils dessinent une boussole.
           </p>
-        </motion.header>
+        </motion.div>
 
-        <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
+        <div className="grid gap-px bg-neutral-900 md:grid-cols-2">
           {leaders.map((leader) => (
             <LeaderPortrait key={leader.name} {...leader} />
           ))}

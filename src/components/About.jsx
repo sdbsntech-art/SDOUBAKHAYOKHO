@@ -8,80 +8,119 @@ const About = () => {
   );
 
   return (
-    <section id="about" className="section border-t border-border-subtle">
-      <div className="container">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-text-dim">
-              À propos
-            </h2>
-            <p className="font-heading text-2xl font-bold leading-tight text-white">
-              Du vivant au numérique : rigueur, curiosité, impact.
-            </p>
+    <section id="about" className="section border-t border-neutral-900 px-6 md:px-12 lg:px-16">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-32">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <div
+                  className="text-blue-600 leading-none"
+                  style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(7rem, 15vw, 13rem)', letterSpacing: '0.02em' }}
+                >01</div>
+                <h2
+                  className="text-white uppercase mt-[-0.12em]"
+                  style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', letterSpacing: '0.03em', lineHeight: 0.9 }}
+                >
+                  Info
+                </h2>
+              </motion.div>
+            </div>
           </div>
 
-          <div className="space-y-6 md:col-span-8">
-            <p className="text-2xl leading-relaxed text-white">
-              Mon parcours s&apos;est d&apos;abord construit autour de la{' '}
-              <strong className="text-white">biologie médicale</strong> : deux
-              années d&apos;études à l&apos;
-              <strong className="text-white">
-                Institut Santé Service (ISS)
-              </strong>
-              , situé à la{' '}
-              <strong className="text-white">Cité Keur Gorgui</strong>, à Dakar.
-              Cette base m&apos;a appris la méthode, le respect des protocoles et
-              le goût de la précision — des qualités que je transpose aujourd&apos;hui
-              dans le développement web.
-            </p>
-            <p className="text-lg leading-relaxed text-text-dim">
-              Je suis convaincu qu&apos;observer le vivant avec sérieux aide à mieux
-              comprendre le monde. C&apos;est pourquoi je me tourne vers la{' '}
-              <strong className="text-white">recherche médicale et biologique</strong>
-              , avec l&apos;ambition d&apos;y associer{' '}
-              <strong className="text-white">l&apos;intelligence artificielle</strong>{' '}
-              pour croiser les données, poser de meilleures questions et rendre
-              certaines réponses plus lisibles — toujours avec humilité et éthique.
-            </p>
-            <p className="text-lg leading-relaxed text-text-dim">
-              En parallèle, je construis des produits numériques utiles : interfaces
-              soignées, logique métier solide, et une approche calme face aux défis
-              techniques. Chaque projet est une occasion d&apos;apprendre, de
-              progresser et de livrer quelque chose dont on peut être fier.
-            </p>
+          <div className="lg:col-span-8 flex flex-col gap-12 lg:pt-12">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-2xl md:text-3xl font-light leading-relaxed text-white">
+                Mon parcours s&apos;est d&apos;abord construit autour de la{' '}
+                <strong className="font-semibold text-white">biologie médicale</strong>{' '}
+                : deux années à l&apos;
+                <strong className="font-semibold text-white">Institut Santé Service (ISS)</strong>,
+                à Dakar. Cette base m&apos;a appris la méthode, le respect des protocoles et
+                le goût de la précision — des qualités que je transpose dans le développement web.
+              </p>
+            </motion.div>
 
-            <div className="grid grid-cols-1 gap-8 border-t border-border-subtle pt-8 sm:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex flex-col gap-6"
+            >
+              <p className="text-lg font-light leading-relaxed text-neutral-400">
+                Je suis convaincu qu&apos;observer le vivant avec sérieux aide à mieux comprendre
+                le monde. C&apos;est pourquoi je me tourne vers la{' '}
+                <strong className="font-medium text-white">recherche médicale et biologique</strong>,
+                avec l&apos;ambition d&apos;y associer{' '}
+                <strong className="font-medium text-white">l&apos;intelligence artificielle</strong>{' '}
+                pour croiser les données et rendre certaines réponses plus lisibles.
+              </p>
+              <p className="text-lg font-light leading-relaxed text-neutral-400">
+                En parallèle, je construis des produits numériques utiles : interfaces soignées,
+                logique métier solide, et une approche calme face aux défis techniques.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-10 border-t border-neutral-900 pt-10"
+            >
               <div>
-                <h4 className="mb-2 text-[10px] font-bold uppercase tracking-widest text-text-dim">
+                <h4
+                  className="text-blue-600 mb-5 text-2xl"
+                  style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}
+                >
                   Orientation
                 </h4>
-                <ul className="space-y-1 text-sm text-text-main">
-                  <li>Biologie médicale & culture scientifique</li>
-                  <li>Recherche, données & IA (perspectives)</li>
-                  <li>Développement web moderne (React)</li>
+                <ul className="flex flex-col gap-0">
+                  {[
+                    'Biologie médicale & culture scientifique',
+                    'Recherche, données & IA (perspectives)',
+                    'Développement web moderne (React)',
+                  ].map((item) => (
+                    <li key={item} className="border-b border-neutral-900 py-3 text-sm font-light text-neutral-400">
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>
-                <h4 className="mb-2 text-[10px] font-bold uppercase tracking-widest text-text-dim">
+                <h4
+                  className="text-blue-600 mb-5 text-2xl"
+                  style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em' }}
+                >
                   Liens utiles
                 </h4>
-                <ul className="space-y-2 text-sm">
+                <ul className="flex flex-col gap-0">
                   {mainSocial.map(({ href, label }) => (
-                    <li key={href}>
+                    <li key={href} className="border-b border-neutral-900 py-3">
                       <a
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-text-dim transition-colors hover:text-white"
+                        className="text-sm font-light text-neutral-400 transition-colors hover:text-white"
                       >
-                        {label}
-                        {label === 'GitHub' ? ' (sdbsntech-art)' : ''}
+                        {label}{label === 'GitHub' ? ' (sdbsntech-art)' : ''}
                       </a>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
