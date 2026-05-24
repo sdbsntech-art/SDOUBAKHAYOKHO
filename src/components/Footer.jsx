@@ -1,35 +1,41 @@
 import React from 'react';
 
+const socials = [
+  { label: 'GitHub', href: 'https://github.com/sdbsntech-art', icon: 'fa-brands fa-github' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/seydou-bakhayokho-864070343', icon: 'fa-brands fa-linkedin' },
+  { label: 'YouTube', href: 'https://www.youtube.com/channel/UCd2g3LCyGPa2lxCdAk1ZP3g', icon: 'fa-brands fa-youtube' },
+  { label: 'Instagram', href: 'https://www.instagram.com/princeseydoubhk/', icon: 'fa-brands fa-instagram' },
+];
+
 const Footer = () => {
   return (
-    <footer className="py-12 border-t border-border-subtle bg-bg-base">
-      <div className="container flex flex-col md:flex-row justify-between items-center gap-8 text-xs font-medium uppercase tracking-[0.2em] text-text-dim">
-        
-        <div className="flex flex-wrap items-center justify-center gap-8">
-          <a href="https://github.com/sdbsntech-art" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-white group">
-            <i className="fa-brands fa-github text-lg"></i>
-            <span className="hidden sm:inline">GitHub</span>
-          </a>
-          <a href="https://www.linkedin.com/in/seydou-bakhayokho-864070343" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-white group">
-            <i className="fa-brands fa-linkedin text-lg"></i>
-            <span className="hidden sm:inline">LinkedIn</span>
-          </a>
-          <a href="https://www.youtube.com/channel/UCd2g3LCyGPa2lxCdAk1ZP3g" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-white group">
-            <i className="fa-brands fa-youtube text-lg"></i>
-            <span className="hidden sm:inline">YouTube</span>
-          </a>
-          <a href="https://www.instagram.com/princeseydoubhk/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-white group">
-            <i className="fa-brands fa-instagram text-lg"></i>
-            <span className="hidden sm:inline">Instagram</span>
-          </a>
-        </div>
+    <footer style={{ borderTop: '1px solid #21262d', background: '#0d1117', padding: '32px 0' }}>
+      <div className="container">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#484f57' }}>
+            <span style={{ color: '#3fb950' }}>$</span> echo "© {new Date().getFullYear()} Seydou Bakhayokho"
+          </div>
 
-        <p>&copy; {new Date().getFullYear()} Seydou Bakhayokho</p>
+          <div className="flex items-center gap-4">
+            {socials.map(({ label, href, icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                style={{ width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', color: '#8b949e', fontSize: '14px', transition: 'all 0.2s', textDecoration: 'none' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = '#3fb950'; e.currentTarget.style.color = '#3fb950'; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = '#21262d'; e.currentTarget.style.color = '#8b949e'; }}
+              >
+                <i className={icon} aria-hidden />
+              </a>
+            ))}
+          </div>
 
-        <div className="flex items-center gap-2">
-          <span>Dakar</span>
-          <span className="w-8 h-px bg-border-subtle"></span>
-          <span>Sénégal</span>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#484f57' }}>
+            // Dakar, Sénégal
+          </div>
         </div>
       </div>
     </footer>

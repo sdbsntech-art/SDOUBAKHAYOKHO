@@ -6,6 +6,7 @@ import LeadersGallery from './components/LeadersGallery';
 import Projects from './components/Projects';
 import Business from './components/Business';
 import Certifications from './components/Certifications';
+import Notes from './components/Notes';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { motion, useScroll, useSpring } from 'framer-motion';
@@ -21,19 +22,13 @@ function App() {
   });
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen" style={{ background: '#0d1117' }}>
       <motion.div
-        className="fixed top-0 left-0 right-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-accent-champagne via-accent-indigo to-accent-cyan"
-        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 z-[60] h-[2px] origin-left"
+        style={{ scaleX, background: '#3fb950' }}
         aria-hidden
       />
-
-      <div className="bg-grid" />
-      <div className="bg-glow glow-indigo" />
-      <div className="bg-glow glow-gold" />
-
       <Navbar />
-
       <main>
         <Hero />
         <About />
@@ -42,9 +37,9 @@ function App() {
         <Projects />
         <Business />
         <Certifications />
+        <Notes />
         <Contact />
       </main>
-
       <Footer />
     </div>
   );
