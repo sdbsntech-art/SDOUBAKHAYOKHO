@@ -63,6 +63,33 @@ const About = () => {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              style={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', padding: '20px' }}
+            >
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#8b949e', marginBottom: '14px' }}>
+                <span style={{ color: '#3fb950' }}>//</span> Parcours universitaire
+              </div>
+              <div className="flex flex-col gap-3" style={{ marginBottom: '4px' }}>
+                {[
+                  ['2023–2024', 'Licence 1', 'Fondations scientifiques et premières expériences en développement.'],
+                  ['2024–2025', 'Licence 2', 'Approfondissement de la biologie médicale, des outils numériques et du travail en équipe.'],
+                  ['2025–2026', 'Licence 3', 'Année actuelle : spécialisation, projets concrets et préparation de la suite du parcours.'],
+                ].map(([period, level, detail], index) => (
+                  <div key={level} style={{ display: 'grid', gridTemplateColumns: '86px 1fr', gap: '12px', paddingBottom: '12px', borderBottom: index < 2 ? '1px solid #21262d' : 'none' }}>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#3fb950', paddingTop: '2px' }}>{period}</span>
+                    <div>
+                      <div style={{ color: '#e6edf3', fontSize: '13px', fontWeight: 600, marginBottom: '3px' }}>{level}</div>
+                      <div style={{ color: '#8b949e', fontSize: '12px', lineHeight: 1.6 }}>{detail}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
               style={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', padding: '20px' }}
             >
