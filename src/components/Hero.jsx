@@ -3,19 +3,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { socialLinks } from '../data/socialLinks';
 import { assetUrl } from '../lib/assetUrl';
+import { getAcademicInfo } from '../lib/academicLevel';
 
 const Hero = () => {
-  const startYear = 2023;
-  const currentYear = new Date().getFullYear();
-  const currentMonth = new Date().getMonth();
-  const academicYear = currentMonth < 8 ? currentYear - 1 : currentYear;
-  const yearsOfStudy = academicYear - startYear + 1;
-  let niveau = 'Licence 3';
-  if (yearsOfStudy === 1) niveau = 'Licence 1';
-  else if (yearsOfStudy === 2) niveau = 'Licence 2';
-  else if (yearsOfStudy === 3) niveau = 'Licence 3';
-  else if (yearsOfStudy === 4) niveau = 'Master 1';
-  else if (yearsOfStudy >= 5) niveau = 'Master 2';
+  const { levelName: niveau } = getAcademicInfo();
 
   const primarySocial = socialLinks.filter((s) =>
     ['GitHub', 'LinkedIn', 'YouTube'].includes(s.label),

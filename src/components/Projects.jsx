@@ -1,42 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Sparkles, Layers } from 'lucide-react';
 
 const projects = [
   {
-    id: 1,
+    id: 'maison-heritage',
     name: 'maison-heritage',
     title: 'Maison Heritage',
-    desc: 'Expérience digitale pensée pour valoriser un patrimoine et faciliter sa découverte.',
+    desc: 'Plateforme digitale élégante valorisant le patrimoine architectural et culturel avec une expérience utilisateur immersive.',
     lang: 'React',
     langColor: '#61dafb',
-    role: 'Produit web',
+    type: 'Plateforme Web',
     year: '2026',
     url: 'https://maison-heritage-z8r9.vercel.app/',
+    isSaaS: false,
     stars: 5,
   },
   {
-    id: 2,
+    id: 'poulet-de-la-cite',
     name: 'poulet-de-la-cite',
     title: 'Poulet de la Cité',
-    desc: 'SaaS orienté commerce : une interface claire pour présenter, organiser et développer une activité.',
+    desc: 'Application vitrine et commerciale moderne facilitant la réservation, commande et distribution de produits avicoles à Dakar.',
     lang: 'JavaScript',
     langColor: '#f7df1e',
-    role: 'SaaS',
+    type: 'Agro-Commerce',
     year: '2026',
     url: 'https://poulet-de-la-cite.vercel.app/',
+    isSaaS: false,
     stars: 5,
   },
   {
-    id: 3,
-    name: 'le-poulailler',
+    id: 'le-poulailler',
+    name: 'le-poulailler-saas',
     title: 'Le Poulailler',
-    desc: 'Outil métier conçu pour suivre une activité d’élevage et transformer les besoins du terrain en fonctionnalités utiles.',
+    desc: 'Plateforme SaaS clé en main pour la gestion globale d’exploitations avicoles : suivi de ponte, mortalité, aliments, trésorerie et reporting.',
     lang: 'TypeScript',
     langColor: '#3178c6',
-    role: 'SaaS',
+    type: 'SaaS Business',
     year: '2026',
     url: 'https://le-poulailler-h648.vercel.app/',
+    isSaaS: true,
     stars: 5,
   },
 ];
@@ -54,54 +57,106 @@ const Projects = () => {
           style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#8b949e' }}
         >
           <span style={{ color: '#3fb950' }}>$</span>
-          <span>ls ./projects</span>
+          <span>ls ./projects --all</span>
         </motion.div>
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-          <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#e6edf3', letterSpacing: '-0.01em' }}>
-            Projets sélectionnés
-          </h2>
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#484f57' }}>
-            {projects.length} repositories
+          <div>
+            <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#e6edf3', letterSpacing: '-0.015em' }}>
+              Projets & SaaS
+            </h2>
+            <p style={{ fontSize: '14px', color: '#8b949e', marginTop: '4px' }}>
+              Applications en production et plateformes SaaS déployées sur Vercel.
+            </p>
+          </div>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#3fb950', background: 'rgba(63,185,80,0.08)', border: '1px solid rgba(63,185,80,0.2)', borderRadius: '6px', padding: '4px 10px' }}>
+            {projects.length} projets actifs
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((p, i) => (
-            <motion.a
+            <motion.div
               key={p.id}
-              href={p.url}
-              target="_blank"
-              rel="noreferrer"
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              style={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', padding: '20px', cursor: 'pointer', textDecoration: 'none', display: 'block', transition: 'border-color 0.2s' }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = '#30363d'}
-              onMouseLeave={e => e.currentTarget.style.borderColor = '#21262d'}
+              className="flex flex-col justify-between"
+              style={{
+                background: '#161b22',
+                border: p.isSaaS ? '1px solid #238636' : '1px solid #21262d',
+                borderRadius: '8px',
+                padding: '22px',
+                position: 'relative',
+                transition: 'all 0.25s ease-in-out',
+                boxShadow: p.isSaaS ? '0 0 20px rgba(35,134,54,0.12)' : 'none',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = p.isSaaS ? '#3fb950' : '#30363d';
+                e.currentTarget.style.transform = 'translateY(-3px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = p.isSaaS ? '#238636' : '#21262d';
+                e.currentTarget.style.transform = 'translateY(0px)';
+              }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ fontSize: '16px' }}>📁</span>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '14px', fontWeight: 600, color: '#58a6ff' }}>{p.name}</span>
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px', fontWeight: 600, color: '#e6edf3' }}>
+                      {p.title}
+                    </span>
+                    {p.isSaaS && (
+                      <span className="flex items-center gap-1" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', fontWeight: 600, color: '#3fb950', background: 'rgba(63,185,80,0.15)', border: '1px solid rgba(63,185,80,0.4)', borderRadius: '100px', padding: '2px 8px' }}>
+                        <Sparkles size={10} /> SaaS
+                      </span>
+                    )}
+                  </div>
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Ouvrir ${p.title}`}
+                    style={{ color: '#58a6ff', padding: '4px', borderRadius: '4px', transition: 'color 0.2s', background: 'rgba(88,166,255,0.08)' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#3fb950'}
+                    onMouseLeave={e => e.currentTarget.style.color = '#58a6ff'}
+                  >
+                    <ExternalLink size={16} />
+                  </a>
                 </div>
-                <ExternalLink size={14} style={{ color: '#484f57' }} />
+
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#8b949e', marginBottom: '12px' }}>
+                  <span style={{ color: '#484f57' }}>url: </span>
+                  <a href={p.url} target="_blank" rel="noreferrer" style={{ color: '#58a6ff', textDecoration: 'underline text-decoration-color: #30363d' }}>
+                    {p.url.replace('https://', '').replace('/', '')}
+                  </a>
+                </div>
+
+                <p style={{ fontSize: '13.5px', color: '#8b949e', lineHeight: 1.65, marginBottom: '22px' }}>
+                  {p.desc}
+                </p>
               </div>
-              <p style={{ fontSize: '13px', color: '#8b949e', lineHeight: 1.6, marginBottom: '20px' }}>{p.desc}</p>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: p.langColor, display: 'inline-block', flexShrink: 0 }} />
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#8b949e' }}>{p.lang}</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#484f57' }}>{p.year}</span>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#8b949e', display: 'flex', alignItems: 'center', gap: '3px' }}>
-                    ⭐ {p.stars}
-                  </span>
+
+              <div>
+                <div style={{ borderTop: '1px solid #21262d', paddingTop: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: p.langColor, display: 'inline-block', flexShrink: 0 }} />
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#8b949e' }}>{p.lang}</span>
+                  </div>
+
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-outline"
+                    style={{ fontSize: '11px', padding: '4px 10px', gap: '4px' }}
+                  >
+                    Visiter le site <ExternalLink size={11} />
+                  </a>
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>

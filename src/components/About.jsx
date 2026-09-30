@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { socialLinks } from '../data/socialLinks';
+import { getAcademicInfo } from '../lib/academicLevel';
 
 const About = () => {
+  const { timeline } = getAcademicInfo();
   const mainSocial = socialLinks.filter((s) =>
     ['GitHub', 'LinkedIn', 'YouTube'].includes(s.label),
   );
@@ -70,16 +72,19 @@ const About = () => {
                 <span style={{ color: '#3fb950' }}>//</span> Parcours universitaire
               </div>
               <div className="flex flex-col gap-3" style={{ marginBottom: '4px' }}>
-                {[
-                  ['2023–2024', 'Licence 1', 'Fondations scientifiques et premières expériences en développement.'],
-                  ['2024–2025', 'Licence 2', 'Approfondissement de la biologie médicale, des outils numériques et du travail en équipe.'],
-                  ['2025–2026', 'Licence 3', 'Année actuelle : spécialisation, projets concrets et préparation de la suite du parcours.'],
-                ].map(([period, level, detail], index) => (
-                  <div key={level} style={{ display: 'grid', gridTemplateColumns: '86px 1fr', gap: '12px', paddingBottom: '12px', borderBottom: index < 2 ? '1px solid #21262d' : 'none' }}>
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#3fb950', paddingTop: '2px' }}>{period}</span>
+                {timeline.map((item, index) => (
+                  <div key={item.period} style={{ display: 'grid', gridTemplateColumns: '86px 1fr', gap: '12px', paddingBottom: '12px', borderBottom: index < timeline.length - 1 ? '1px solid #21262d' : 'none' }}>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: item.isCurrent ? '#3fb950' : '#8b949e', paddingTop: '2px' }}>{item.period}</span>
                     <div>
-                      <div style={{ color: '#e6edf3', fontSize: '13px', fontWeight: 600, marginBottom: '3px' }}>{level}</div>
-                      <div style={{ color: '#8b949e', fontSize: '12px', lineHeight: 1.6 }}>{detail}</div>
+                      <div className="flex items-center gap-2" style={{ marginBottom: '3px' }}>
+                        <span style={{ color: '#e6edf3', fontSize: '13px', fontWeight: 600 }}>{item.level}</span>
+                        {item.isCurrent && (
+                          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: '#3fb950', background: 'rgba(63,185,80,0.12)', border: '1px solid rgba(63,185,80,0.3)', borderRadius: '4px', padding: '1px 6px' }}>
+                            En cours
+                          </span>
+                        )}
+                      </div>
+                      <div style={{ color: '#8b949e', fontSize: '12px', lineHeight: 1.6 }}>{item.detail}</div>
                     </div>
                   </div>
                 ))}
