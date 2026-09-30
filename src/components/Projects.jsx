@@ -1,8 +1,47 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Sparkles, Layers } from 'lucide-react';
+import { ExternalLink, Sparkles, BookOpen } from 'lucide-react';
 
 const projects = [
+  {
+    id: 'ida-cours',
+    name: 'ida-cours',
+    title: 'IDA Cours',
+    desc: 'Plateforme éducative en ligne permettant aux étudiants d’accéder à des cours structurés, des ressources pédagogiques et des guides d’apprentissage.',
+    lang: 'React / Next',
+    langColor: '#61dafb',
+    type: 'Éducation',
+    year: '2026',
+    url: 'https://ida-cours.site/',
+    isSaaS: false,
+    stars: 5,
+  },
+  {
+    id: 'mon-journal',
+    name: 'mon-journal',
+    title: 'Mon Journal',
+    desc: 'Espace de rédaction web et journal personnel interactif pour structurer ses pensées, consigner ses travaux et suivre son évolution.',
+    lang: 'JavaScript',
+    langColor: '#f7df1e',
+    type: 'Web App',
+    year: '2026',
+    url: 'https://mon-journal-omega.vercel.app/',
+    isSaaS: false,
+    stars: 5,
+  },
+  {
+    id: 'le-poulailler',
+    name: 'le-poulailler-saas',
+    title: 'Le Poulailler',
+    desc: 'Plateforme SaaS clé en main pour la gestion globale d’exploitations avicoles : suivi de ponte, mortalité, aliments, trésorerie et reporting.',
+    lang: 'TypeScript',
+    langColor: '#3178c6',
+    type: 'SaaS Business',
+    year: '2026',
+    url: 'https://le-poulailler-h648.vercel.app/',
+    isSaaS: true,
+    stars: 5,
+  },
   {
     id: 'maison-heritage',
     name: 'maison-heritage',
@@ -10,7 +49,7 @@ const projects = [
     desc: 'Plateforme digitale élégante valorisant le patrimoine architectural et culturel avec une expérience utilisateur immersive.',
     lang: 'React',
     langColor: '#61dafb',
-    type: 'Plateforme Web',
+    type: 'Patrimoine Web',
     year: '2026',
     url: 'https://maison-heritage-z8r9.vercel.app/',
     isSaaS: false,
@@ -27,19 +66,6 @@ const projects = [
     year: '2026',
     url: 'https://poulet-de-la-cite.vercel.app/',
     isSaaS: false,
-    stars: 5,
-  },
-  {
-    id: 'le-poulailler',
-    name: 'le-poulailler-saas',
-    title: 'Le Poulailler',
-    desc: 'Plateforme SaaS clé en main pour la gestion globale d’exploitations avicoles : suivi de ponte, mortalité, aliments, trésorerie et reporting.',
-    lang: 'TypeScript',
-    langColor: '#3178c6',
-    type: 'SaaS Business',
-    year: '2026',
-    url: 'https://le-poulailler-h648.vercel.app/',
-    isSaaS: true,
     stars: 5,
   },
 ];
@@ -66,7 +92,7 @@ const Projects = () => {
               Projets & SaaS
             </h2>
             <p style={{ fontSize: '14px', color: '#8b949e', marginTop: '4px' }}>
-              Applications en production et plateformes SaaS déployées sur Vercel.
+              Applications web, plateformes éducatives et SaaS déployés.
             </p>
           </div>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#3fb950', background: 'rgba(63,185,80,0.08)', border: '1px solid rgba(63,185,80,0.2)', borderRadius: '6px', padding: '4px 10px' }}>
@@ -74,14 +100,14 @@ const Projects = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p, i) => (
             <motion.div
               key={p.id}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
               className="flex flex-col justify-between"
               style={{
                 background: '#161b22',
