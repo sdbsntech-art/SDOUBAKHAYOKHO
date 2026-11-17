@@ -104,27 +104,6 @@ const BootcampGallery = () => {
             rencontres m&apos;ont appris l&apos;importance de l&apos;écoute, de la rigueur et
             de l&apos;entraide dans le travail en équipe.
           </p>
-          <div style={{ marginBottom: '24px', background: '#161b22', border: '1px solid #21262d', borderRadius: '8px', overflow: 'hidden' }}>
-            <div style={{ padding: '12px 16px', borderBottom: '1px solid #21262d' }}>
-              <h3 style={{ fontSize: '14px', fontWeight: 600, color: '#e6edf3', marginBottom: '3px' }}>
-                Le bootcamp en vidéo
-              </h3>
-              <p style={{ fontSize: '12px', color: '#8b949e' }}>
-                Un aperçu de cette expérience à Dakar
-              </p>
-            </div>
-            <video
-              controls
-              playsInline
-              preload="metadata"
-              poster={bootcampSlides[0].src}
-              aria-label="Vidéo du bootcamp d’intégration de Force N à Dakar"
-              style={{ display: 'block', width: '100%', maxHeight: 'min(70vh, 640px)', background: '#0d1117' }}
-            >
-              <source src={assetUrl('bootcamp-integration-force-n.mp4')} type="video/mp4" />
-              Votre navigateur ne prend pas en charge la lecture de cette vidéo.
-            </video>
-          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" aria-label="Photos des bootcamps">
             {bootcampSlides.map((slide, index) => (
               <BootcampPhoto key={slide.src} slide={slide} index={index} />
