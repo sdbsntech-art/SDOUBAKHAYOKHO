@@ -57,11 +57,13 @@ const About = () => {
                 pensés pour répondre à un vrai besoin.
               </p>
               <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e', marginBottom: '16px' }}>
-                J&apos;ai aussi participé à des bootcamps d&apos;intégration dans les camps
-                militaires de Bel Air et de Yeumbeul, avec l&apos;accompagnement de Force N.
-                Cette expérience m&apos;a permis de découvrir un cadre exigeant et de
-                collaborer avec des militaires et des développeurs, dans un esprit de
-                discipline, de rigueur et de travail d&apos;équipe.
+                Avec l&apos;accompagnement de Force N, j&apos;ai pris part à des hackathons
+                organisés notamment dans les camps militaires de Bel Air et de Yeumbeul.
+                Formés en équipes, les participants ont imaginé et développé des solutions
+                concrètes, pensées pour répondre aux besoins des personnes concernées.
+                Cette expérience m&apos;a appris à collaborer avec des militaires et des
+                développeurs, à écouter les besoins du terrain et à transformer une idée
+                en proposition utile.
               </p>
               <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e' }}>
                 Vous avez une idée, un site à créer ou une expérience à améliorer ?

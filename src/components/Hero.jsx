@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <section id="home" className="section" style={{ paddingTop: '120px', paddingBottom: '80px' }}>
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
           <div className="lg:col-span-8">
             {/* Terminal prompt */}

@@ -5,7 +5,7 @@ import { getAcademicInfo } from '../lib/academicLevel';
 
 const links = [
   { name: '~/info', href: '#about' },
-  { name: '~/bootcamp', href: '#bootcamp' },
+  { name: '~/hackathons', href: '#hackathons' },
   { name: '~/figures', href: '#leaders' },
   { name: '~/works', href: '#projects' },
   { name: '~/business', href: '#business' },

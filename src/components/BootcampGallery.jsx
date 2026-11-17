@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { assetUrl } from '../lib/assetUrl';
 
-const bootcampSlides = [
-  { src: assetUrl('bootcamp-1.jpeg'), alt: "Bootcamp — moment d'équipe 1" },
-  { src: assetUrl('bootcamp-2.jpeg'), alt: "Bootcamp — moment d'équipe 2" },
-  { src: assetUrl('bootcamp-3.jpeg'), alt: "Bootcamp — moment d'équipe 3" },
+const hackathonPhotos = [
+  { src: assetUrl('bootcamp-1.jpeg'), alt: "Hackathon Force N — travail d'équipe à Dakar, photo 1" },
+  { src: assetUrl('bootcamp-2.jpeg'), alt: "Hackathon Force N — travail d'équipe à Dakar, photo 2" },
+  { src: assetUrl('bootcamp-3.jpeg'), alt: "Hackathon Force N — travail d'équipe à Dakar, photo 3" },
 ];
 
 const fadeUp = {
@@ -32,7 +32,7 @@ const wisdomBlocks = [
   },
 ];
 
-function BootcampPhoto({ slide, index }) {
+function HackathonPhoto({ slide, index }) {
   const [failed, setFailed] = useState(false);
 
   return (
@@ -64,7 +64,7 @@ function BootcampPhoto({ slide, index }) {
         )}
       </div>
       <figcaption style={{ padding: '12px 14px', color: '#8b949e', fontFamily: "'JetBrains Mono', monospace", fontSize: '11px' }}>
-        Bootcamp · moment d&apos;équipe {index + 1}
+        Hackathon · moment d&apos;équipe {index + 1}
       </figcaption>
     </motion.figure>
   );
@@ -72,7 +72,7 @@ function BootcampPhoto({ slide, index }) {
 
 const BootcampGallery = () => {
   return (
-    <section id="bootcamp" className="section" style={{ borderTop: '1px solid #21262d' }}>
+    <section id="hackathons" className="section" style={{ borderTop: '1px solid #21262d' }}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -88,7 +88,7 @@ const BootcampGallery = () => {
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#e6edf3', letterSpacing: '-0.01em' }}>
-            Bootcamps d&apos;intégration
+            Hackathons d&apos;innovation
           </h2>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#484f57' }}>
             Bel Air · Yeumbeul · Dakar
@@ -97,16 +97,17 @@ const BootcampGallery = () => {
 
         <motion.div {...fadeUp} style={{ marginBottom: '48px' }}>
           <p style={{ maxWidth: '760px', fontSize: '15px', color: '#8b949e', lineHeight: 1.85, marginBottom: '24px' }}>
-            Avec l&apos;accompagnement de Force N, j&apos;ai eu l&apos;opportunité de participer
-            à des bootcamps d&apos;intégration organisés notamment à Bel Air et à Yeumbeul.
-            J&apos;y ai découvert un environnement marqué par la discipline et la cohésion,
-            et partagé des expériences avec des militaires et des développeurs. Ces
-            rencontres m&apos;ont appris l&apos;importance de l&apos;écoute, de la rigueur et
-            de l&apos;entraide dans le travail en équipe.
+            Avec l&apos;accompagnement de Force N, j&apos;ai participé à des hackathons
+            organisés notamment dans les camps militaires de Bel Air et de Yeumbeul.
+            Des participants aux parcours variés se sont réunis en équipes pour comprendre
+            les besoins des personnes concernées, puis concevoir et développer des
+            solutions concrètes et utiles. La collaboration entre militaires et développeurs
+            a mis en valeur l&apos;écoute, la complémentarité des compétences et le travail
+            collectif, de l&apos;idée à la proposition de solution.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" aria-label="Photos des bootcamps">
-            {bootcampSlides.map((slide, index) => (
-              <BootcampPhoto key={slide.src} slide={slide} index={index} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" aria-label="Photos des hackathons">
+            {hackathonPhotos.map((slide, index) => (
+              <HackathonPhoto key={slide.src} slide={slide} index={index} />
             ))}
           </div>
         </motion.div>
