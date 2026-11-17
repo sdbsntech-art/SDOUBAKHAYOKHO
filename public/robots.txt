@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/sitemap.xml

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/</loc>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/asset/IMG-20250518-WA0013.jpg</image:loc>
+      <image:title>Seydou Bakhayokho, développeur web à Dakar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/asset/bootcamp-1.jpeg</image:loc>
+      <image:title>Hackathon collaboratif Force N à Dakar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/asset/bootcamp-2.jpeg</image:loc>
+      <image:title>Équipe réunie lors d’un hackathon à Dakar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/asset/bootcamp-3.jpeg</image:loc>
+      <image:title>Participants à un hackathon Force N</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/document/bac.pdf</loc>
+  </url>
+  <url>
+    <loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/document/Certificat%20%281%29.pdf</loc>
+  </url>
+  <url>
+    <loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/document/Certificat%20FRONT-END.pdf</loc>
+  </url>
+  <url>
+    <loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/document/coursera%20%20software.pdf</loc>
+  </url>
+  <url>
+    <loc>https://sdbsntech-art.github.io/SDOUBAKHAYOKHO/document/coursera%20mon%20diplome%20de%20cybers%C3%A9curit%C3%A9.pdf</loc>
+  </url>
+</urlset>
