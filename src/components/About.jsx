@@ -57,13 +57,13 @@ const About = () => {
                 pensés pour répondre à un vrai besoin.
               </p>
               <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e', marginBottom: '16px' }}>
-                Avec l&apos;accompagnement de Force N, j&apos;ai pris part à des hackathons
-                organisés notamment dans les camps militaires de Bel Air et de Yeumbeul.
-                Formés en équipes, les participants ont imaginé et développé des solutions
-                concrètes, pensées pour répondre aux besoins des personnes concernées.
-                Cette expérience m&apos;a appris à collaborer avec des militaires et des
-                développeurs, à écouter les besoins du terrain et à transformer une idée
-                en proposition utile.
+                Avec l&apos;accompagnement de Force N, j&apos;ai participé à des hackathons
+                organisés dans des hôtels à Dakar, notamment à Bel Air et à Yeumbeul.
+                Pendant plusieurs journées intenses, des participants aux profils variés
+                ont travaillé en équipe pour comprendre les besoins des personnes concernées,
+                puis imaginer et développer des solutions concrètes et utiles. Cette expérience
+                m&apos;a appris à collaborer avec des militaires et des développeurs, à écouter
+                différents points de vue et à transformer une idée en proposition réalisable.
               </p>
               <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e' }}>
                 Vous avez une idée, un site à créer ou une expérience à améliorer ?

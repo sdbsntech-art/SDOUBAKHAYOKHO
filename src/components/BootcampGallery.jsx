@@ -91,19 +91,20 @@ const BootcampGallery = () => {
             Hackathons d&apos;innovation
           </h2>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#484f57' }}>
-            Bel Air · Yeumbeul · Dakar
+            Hôtels · Bel Air · Yeumbeul · Dakar
           </span>
         </div>
 
         <motion.div {...fadeUp} style={{ marginBottom: '48px' }}>
           <p style={{ maxWidth: '760px', fontSize: '15px', color: '#8b949e', lineHeight: 1.85, marginBottom: '24px' }}>
             Avec l&apos;accompagnement de Force N, j&apos;ai participé à des hackathons
-            organisés notamment dans les camps militaires de Bel Air et de Yeumbeul.
-            Des participants aux parcours variés se sont réunis en équipes pour comprendre
-            les besoins des personnes concernées, puis concevoir et développer des
-            solutions concrètes et utiles. La collaboration entre militaires et développeurs
-            a mis en valeur l&apos;écoute, la complémentarité des compétences et le travail
-            collectif, de l&apos;idée à la proposition de solution.
+            organisés dans des hôtels à Dakar, notamment à Bel Air et à Yeumbeul.
+            Pendant plusieurs journées intenses, des participants aux parcours variés
+            ont travaillé en équipes pour comprendre les besoins des personnes concernées,
+            puis imaginer et développer des solutions concrètes et utilisables. La
+            collaboration entre militaires et développeurs a mis en valeur l&apos;écoute,
+            la complémentarité des compétences et le travail collectif, de l&apos;idée
+            jusqu&apos;à une proposition réalisable.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" aria-label="Photos des hackathons">
             {hackathonPhotos.map((slide, index) => (
