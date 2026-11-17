@@ -46,6 +46,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="hero-code"
               style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: '#8b949e', lineHeight: 2, marginBottom: '28px', background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', padding: '16px 20px' }}
             >
               <span style={{ color: '#58a6ff' }}>const</span>{' '}
@@ -67,11 +68,54 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.8, color: '#8b949e', maxWidth: '480px', marginBottom: '32px' }}
+              style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.8, color: '#8b949e', maxWidth: '480px', marginBottom: '24px' }}
             >
-              Je construis des interfaces web efficaces et des produits numériques utiles,
-              avec une approche calme face aux défis techniques.
+              Développeur web à Dakar et étudiant en Licence 3, je transforme vos idées
+              en sites et applications utiles, soignés et adaptés à vos besoins. Ouvert
+              aux projets et aux collaborations.
             </motion.p>
+
+            <motion.article
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.32 }}
+              style={{ maxWidth: '620px', marginBottom: '28px', padding: '18px', background: 'linear-gradient(135deg, rgba(63,185,80,0.08), rgba(22,27,34,0.96) 55%)', border: '1px solid rgba(63,185,80,0.25)', borderRadius: '8px' }}
+            >
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', letterSpacing: '0.06em', color: '#3fb950' }}>
+                  AUTRE AXE
+                </span>
+                <span style={{ color: '#484f57' }}>·</span>
+                <span style={{ fontSize: '12px', color: '#c9d1d9' }}>
+                  Cybersécurité, Bitcoin & Lightning Network
+                </span>
+              </div>
+              <h2 style={{ fontSize: '18px', fontWeight: 650, lineHeight: 1.4, color: '#e6edf3', marginBottom: '8px' }}>
+                Curieux des technologies qui renforcent la confiance numérique
+              </h2>
+              <p style={{ fontSize: '13px', lineHeight: 1.75, color: '#8b949e', marginBottom: '16px' }}>
+                Boursier du Bootcamp gratuit de développement Lightning Routing en Afrique,
+                à Dakar, j&apos;ai découvert le développement Bitcoin et le Lightning Network
+                aux côtés de développeurs venus de tout le Sénégal. Cette expérience nourrit
+                mon intérêt pour la cybersécurité, les paiements décentralisés et la
+                construction de technologies plus fiables.
+              </p>
+              <div className="grid grid-cols-2 gap-3" aria-label="Photos de Seydou au bootcamp Bitcoin et Lightning">
+                {[
+                  { name: 'seydou-lightning-bootcamp-1.png', alt: 'Seydou en réflexion pendant le bootcamp de développement Lightning Routing' },
+                  { name: 'seydou-lightning-bootcamp-2.png', alt: 'Seydou participant au bootcamp de développement Bitcoin et Lightning' },
+                ].map((photo) => (
+                  <img
+                    key={photo.name}
+                    src={assetUrl(photo.name)}
+                    alt={photo.alt}
+                    loading="eager"
+                    decoding="async"
+                    style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', objectPosition: 'center 35%', border: '1px solid #30363d', borderRadius: '6px' }}
+                  />
+                ))}
+              </div>
+            </motion.article>
 
             <motion.div
               initial={{ opacity: 0 }}
@@ -83,7 +127,7 @@ const Hero = () => {
                 Voir les projets <ArrowRight size={15} />
               </a>
               <a href="#contact" className="btn-outline">
-                Me contacter
+                Parlons de votre projet
               </a>
             </motion.div>
 

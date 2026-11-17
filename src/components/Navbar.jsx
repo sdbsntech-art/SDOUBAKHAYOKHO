@@ -147,7 +147,7 @@ const Navbar = () => {
                 background: 'rgba(35,134,54,0.12)',
               }}
             >
-              available=true
+              Ouvert aux projets
             </div>
           </div>
 
@@ -182,6 +182,7 @@ const Navbar = () => {
         <AnimatePresence>
           {menuOpen && (
             <motion.div
+              className="mobile-menu-panel"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -219,7 +220,7 @@ const Navbar = () => {
                       border: '1px solid rgba(35,134,54,0.3)',
                     }}
                   >
-                    available=true
+                    Ouvert aux projets
                   </span>
                 </div>
 
@@ -258,7 +259,7 @@ const Navbar = () => {
                     className="btn-minimal w-full justify-center"
                     style={{ textAlign: 'center' }}
                   >
-                    Me contacter
+                    Parlons de votre projet
                   </a>
                 </div>
               </div>

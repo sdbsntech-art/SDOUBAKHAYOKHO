@@ -56,14 +56,16 @@ const Contact = () => {
                 Travaillons ensemble
               </h2>
               <p style={{ fontSize: '15px', color: '#8b949e', lineHeight: 1.8, marginBottom: '32px' }}>
-                Un projet en tête ? Une collaboration à explorer ? Envoyez-moi un message.
+                Besoin d&apos;un site, d&apos;une application ou d&apos;un partenaire pour
+                concrétiser une idée ? Présentez-moi votre projet : échangeons sur la
+                meilleure façon d&apos;avancer.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {[
                   { icon: '📧', label: 'Email', value: 'sdbsntech@gmail.com', href: 'mailto:sdbsntech@gmail.com' },
                   { icon: '📍', label: 'Localisation', value: 'Dakar, Sénégal', href: null },
-                  { icon: '🕐', label: 'Disponibilité', value: 'Ouvert aux projets', href: null },
+                  { icon: '🕐', label: 'Disponibilité', value: 'Projets web & collaborations', href: null },
                 ].map(({ icon, label, value, href }) => (
                   <div key={label} style={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <span style={{ fontSize: '14px' }}>{icon}</span>

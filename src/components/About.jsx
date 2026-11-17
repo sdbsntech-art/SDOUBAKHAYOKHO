@@ -43,21 +43,30 @@ const About = () => {
                 À propos
               </h2>
               <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e', marginBottom: '16px' }}>
-                Mon parcours s&apos;est d&apos;abord construit autour de la{' '}
-                <span style={{ color: '#e6edf3', fontWeight: 500 }}>biologie médicale</span>{' '}
-                — deux années à l&apos;Institut Santé Service (ISS) à Dakar. Cette base m&apos;a appris
-                la méthode, le respect des protocoles et le goût de la précision.
+                Je suis Seydou Bakhayokho, développeur web et entrepreneur à Dakar,
+                actuellement en{' '}
+                <span style={{ color: '#e6edf3', fontWeight: 500 }}>Licence 3</span>.
+                Je conçois des sites et applications pour aider les personnes et les
+                organisations à concrétiser leurs idées.
               </p>
               <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e', marginBottom: '16px' }}>
-                Je me tourne vers la{' '}
-                <span style={{ color: '#e6edf3', fontWeight: 500 }}>recherche médicale et biologique</span>
-                , avec l&apos;ambition d&apos;y associer{' '}
-                <span style={{ color: '#3fb950', fontWeight: 500 }}>l&apos;intelligence artificielle</span>
-                {' '}pour croiser les données et rendre certaines réponses plus lisibles.
+                Mon parcours en{' '}
+                <span style={{ color: '#e6edf3', fontWeight: 500 }}>biologie médicale</span>{' '}
+                m&apos;a apporté méthode, rigueur et attention aux détails. Je les mets
+                aujourd&apos;hui au service de projets numériques simples à utiliser et
+                pensés pour répondre à un vrai besoin.
+              </p>
+              <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e', marginBottom: '16px' }}>
+                J&apos;ai aussi participé à des bootcamps d&apos;intégration dans les camps
+                militaires de Bel Air et de Yeumbeul, avec l&apos;accompagnement de Force N.
+                Cette expérience m&apos;a permis de découvrir un cadre exigeant et de
+                collaborer avec des militaires et des développeurs, dans un esprit de
+                discipline, de rigueur et de travail d&apos;équipe.
               </p>
               <p style={{ fontSize: '16px', fontWeight: 400, lineHeight: 1.85, color: '#8b949e' }}>
-                En parallèle, je construis des produits numériques utiles : interfaces soignées,
-                logique métier solide, et une approche calme face aux défis techniques.
+                Vous avez une idée, un site à créer ou une expérience à améliorer ?
+                Je suis ouvert aux échanges et aux collaborations, de la première
+                réflexion jusqu&apos;à la mise en ligne.
               </p>
             </motion.div>
 

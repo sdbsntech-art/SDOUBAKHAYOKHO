@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import ImageCarousel from './ImageCarousel';
 import { assetUrl } from '../lib/assetUrl';
 
 const bootcampSlides = [
-  { src: assetUrl('bootcamp 1.jpeg'), alt: "Bootcamp — moment d'équipe 1" },
-  { src: assetUrl('bootcamp 2.jpeg'), alt: "Bootcamp — moment d'équipe 2" },
-  { src: assetUrl('bootcamp 3.jpeg'), alt: "Bootcamp — moment d'équipe 3" },
+  { src: assetUrl('bootcamp-1.jpeg'), alt: "Bootcamp — moment d'équipe 1" },
+  { src: assetUrl('bootcamp-2.jpeg'), alt: "Bootcamp — moment d'équipe 2" },
+  { src: assetUrl('bootcamp-3.jpeg'), alt: "Bootcamp — moment d'équipe 3" },
 ];
 
 const fadeUp = {
@@ -33,6 +32,44 @@ const wisdomBlocks = [
   },
 ];
 
+function BootcampPhoto({ slide, index }) {
+  const [failed, setFailed] = useState(false);
+
+  return (
+    <motion.figure
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
+      style={{ minWidth: 0, margin: 0, background: '#161b22', border: '1px solid #21262d', borderRadius: '8px', overflow: 'hidden' }}
+    >
+      <div style={{ aspectRatio: '4 / 3', overflow: 'hidden', background: '#0d1117' }}>
+        {failed ? (
+          <div
+            role="img"
+            aria-label={`Photo indisponible : ${slide.alt}`}
+            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', color: '#8b949e', fontSize: '13px', textAlign: 'center' }}
+          >
+            Photo momentanément indisponible
+          </div>
+        ) : (
+          <img
+            src={slide.src}
+            alt={slide.alt}
+            loading="lazy"
+            decoding="async"
+            onError={() => setFailed(true)}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        )}
+      </div>
+      <figcaption style={{ padding: '12px 14px', color: '#8b949e', fontFamily: "'JetBrains Mono', monospace", fontSize: '11px' }}>
+        Bootcamp · moment d&apos;équipe {index + 1}
+      </figcaption>
+    </motion.figure>
+  );
+}
+
 const BootcampGallery = () => {
   return (
     <section id="bootcamp" className="section" style={{ borderTop: '1px solid #21262d' }}>
@@ -51,22 +88,47 @@ const BootcampGallery = () => {
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#e6edf3', letterSpacing: '-0.01em' }}>
-            Immersion & souvenirs
+            Bootcamps d&apos;intégration
           </h2>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#484f57' }}>
-            Bootcamp & cohorte
+            Bel Air · Yeumbeul · Dakar
           </span>
         </div>
 
         <motion.div {...fadeUp} style={{ marginBottom: '48px' }}>
-          <div style={{ background: '#161b22', border: '1px solid #21262d', borderRadius: '6px', overflow: 'hidden' }}>
-            <div style={{ padding: '10px 16px', borderBottom: '1px solid #21262d', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ff5f57' }} />
-              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#febc2e' }} />
-              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#28c840' }} />
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#484f57', marginLeft: '8px' }}>bootcamp/</span>
+          <p style={{ maxWidth: '760px', fontSize: '15px', color: '#8b949e', lineHeight: 1.85, marginBottom: '24px' }}>
+            Avec l&apos;accompagnement de Force N, j&apos;ai eu l&apos;opportunité de participer
+            à des bootcamps d&apos;intégration organisés notamment à Bel Air et à Yeumbeul.
+            J&apos;y ai découvert un environnement marqué par la discipline et la cohésion,
+            et partagé des expériences avec des militaires et des développeurs. Ces
+            rencontres m&apos;ont appris l&apos;importance de l&apos;écoute, de la rigueur et
+            de l&apos;entraide dans le travail en équipe.
+          </p>
+          <div style={{ marginBottom: '24px', background: '#161b22', border: '1px solid #21262d', borderRadius: '8px', overflow: 'hidden' }}>
+            <div style={{ padding: '12px 16px', borderBottom: '1px solid #21262d' }}>
+              <h3 style={{ fontSize: '14px', fontWeight: 600, color: '#e6edf3', marginBottom: '3px' }}>
+                Le bootcamp en vidéo
+              </h3>
+              <p style={{ fontSize: '12px', color: '#8b949e' }}>
+                Un aperçu de cette expérience à Dakar
+              </p>
             </div>
-            <ImageCarousel slides={bootcampSlides} ariaLabel="Photos bootcamp et équipe" />
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster={bootcampSlides[0].src}
+              aria-label="Vidéo du bootcamp d’intégration de Force N à Dakar"
+              style={{ display: 'block', width: '100%', maxHeight: 'min(70vh, 640px)', background: '#0d1117' }}
+            >
+              <source src={assetUrl('bootcamp-integration-force-n.mp4')} type="video/mp4" />
+              Votre navigateur ne prend pas en charge la lecture de cette vidéo.
+            </video>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" aria-label="Photos des bootcamps">
+            {bootcampSlides.map((slide, index) => (
+              <BootcampPhoto key={slide.src} slide={slide} index={index} />
+            ))}
           </div>
         </motion.div>
 
